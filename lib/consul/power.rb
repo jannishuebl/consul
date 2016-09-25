@@ -18,6 +18,7 @@ module Consul
       # class. Unfortunately we can only reproduce this in live Rails
       # apps, not in Consul tests. Might be some standard gem that is not
       # loaded in Consul tests.
+      result = !result.empty? if result.respond_to?(:empty?, true)
       result.respond_to?(:load_target, true) || !!result
     end
 
